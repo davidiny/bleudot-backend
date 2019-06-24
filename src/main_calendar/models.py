@@ -1,3 +1,20 @@
 from django.db import models
 
-# Create your models here.
+# This is the first model for bleudot _backend 
+
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
+# This is the first model for bleudot _backend 
