@@ -17,3 +17,8 @@ class Organization(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
 # Create your models here.
+class User(models.Model):
+    name = models.CharField(max_length=200)
+    active = models.BooleanField(default=True)
+
+
