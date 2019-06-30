@@ -13,7 +13,7 @@ class  Calendar(models.Model):
 class Organization(models.Model):
     name = models.CharField(max_length=200)
     org_type = models.CharField(max_length=200)
-    mailing_address = Models.TextField()
+    mailing_address = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 
 # This is the first model for bleudot _backend 
