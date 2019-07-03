@@ -83,30 +83,9 @@ class Rsvp(models.Model):
     event           = models.ForeignKey(Event, on_delete=models.CASCADE)
     user            = models.ForeignKey(User, on_delete=models.CASCADE)
 
-<<<<<<< HEAD
 class Notification(models.Model):
     input_nums      = models.BooleanField(default=False) # ???
     input_unit      = models.BooleanField(default=False) # ???
     set_time        = models.DateTimeField()
     event           = models.ManyToManyField(Event)
     receiver_user   = models.ForeignKey(User, on_delete=models.CASCADE)
-=======
-# This is the first model for bleudot _backend 
-
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
-# This is the first model for bleudot _backend 
->>>>>>> origin/minji
