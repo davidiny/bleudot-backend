@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # custom apps added
+    'main_calendar',
+    'address', # documentation: https://github.com/furious-luke/django-address
+    'phone_field', # documentation: https://pypi.org/project/django-phone-field/
+    
 ]
 
 MIDDLEWARE = [
@@ -118,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+GOOGLE_API_KEY = 'AIzaSyAHh5hEYiDOr_Js7hywiFloJMv9a78w6gU'
