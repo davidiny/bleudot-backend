@@ -13,7 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib.auth.models import User, Organization
+from django.contrib.auth.models import User
+from main_calendar.models import Organization
 from django.shortcuts import get_object_or_404
 # from myapps.serializers import UserSerializer
 from rest_framework import viewsets, routers

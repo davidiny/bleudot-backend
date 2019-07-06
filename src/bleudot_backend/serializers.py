@@ -1,4 +1,5 @@
-from django.contrib.auth.models import User, Organization
+from django.contrib.auth.models import User
+from main_calendar.models import Organization
 from rest_framework import serializers, viewsets
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
