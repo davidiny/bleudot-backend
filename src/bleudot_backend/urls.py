@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib.auth.models import User
 from main_calendar.models import Organization
 from django.shortcuts import get_object_or_404
-# from myapps.serializers import UserSerializer
 from rest_framework import viewsets, routers
 from rest_framework.response import Response
 from .serializers import UserViewSet, OrganizationViewSet
