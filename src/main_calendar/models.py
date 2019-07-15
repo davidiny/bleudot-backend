@@ -12,11 +12,11 @@ from phone_field import PhoneField
 """
  some notes:
 - Django automaticall append "_id" to the column name for foreign key attributes.
-- I'm using a Django library called django-address for address field. Link is in 
+- I'm using a Django library called django-address for address field. Link is in
   settings.py
-- in django, there's a field called DurationField. We could use this as a column 
-  instead of having columns for end_time and end_date. 
-- For time/date fields, auto_now_add=True makes it not modifiable. To make it 
+- in django, there's a field called DurationField. We could use this as a column
+  instead of having columns for end_time and end_date.
+- For time/date fields, auto_now_add=True makes it not modifiable. To make it
   modifiable, use default=timezone.now or default=date.today (refer to documentation)
 - null=True/blank=True only needed when the field is optional
 - in the future, for ForeignKey, "User" should be replaced with
@@ -44,7 +44,7 @@ class Calendar(models.Model):
     created_at      = models.DateTimeField(auto_now_add=True) # sets the value of the field to current datetime when the object is created
     is_private      = models.BooleanField(default=False) # default as public?
     active          = models.BooleanField(default=True)
-    published       = models.BooleanField(default=False) 
+    published       = models.BooleanField(default=False)
     organization    = models.ForeignKey('Organization', on_delete=models.CASCADE)
 
 class Event(models.Model):
@@ -65,6 +65,7 @@ class Organization(models.Model):
     name            = models.CharField(max_length=200)
     org_type        = models.CharField(max_length=200)
     mailing_address = AddressField(on_delete=models.CASCADE) # check settings.py for more info
+    org_type = models.CharField(max_length=200)
     created_at      = models.DateTimeField(auto_now_add=True)
 
 class Subscription(models.Model):
