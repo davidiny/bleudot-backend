@@ -29,7 +29,6 @@ class User(models.Model):
     first_name      = models.CharField(max_length=50)
     last_name       = models.CharField(max_length=50)
     phone_number    = PhoneField() # settings.py for more info
-    address         = AddressField(on_delete=models.CASCADE) # settings.py for more info
     profile_pic_url = models.URLField()
 
 class EventHost(User):
@@ -64,7 +63,7 @@ class Event(models.Model):
 class Organization(models.Model):
     name            = models.CharField(max_length=200)
     org_type        = models.CharField(max_length=200)
-    mailing_address = AddressField(on_delete=models.CASCADE) # check settings.py for more info
+    email           = models.EmailField(max_length=200)
     org_type = models.CharField(max_length=200)
     created_at      = models.DateTimeField(auto_now_add=True)
 
