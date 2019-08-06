@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     # custom apps added
     'main_calendar',
+    'Event',
     'address', # documentation: https://github.com/furious-luke/django-address
     'phone_field', # documentation: https://pypi.org/project/django-phone-field/
     'rest_framework',

@@ -57,7 +57,7 @@ class Event(models.Model):
     location        = models.CharField(max_length=200)
     created_at      = models.DateTimeField(auto_now_add=True)
     deleted_at      = models.DateTimeField()
-    signature       = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    user       = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     recurring       = models.BooleanField(default=False) # we probably need more structure for recurring events
 
 class Organization(models.Model):
