@@ -43,7 +43,7 @@ jobs:
           command: |
             sudo python3 -m pip install virtualenv
             virtualenv venv -p python3
-            . src/venv/bin/activate
+            source venv/bin/activate
             sudo pip install django
 
 #       - save_cache:
@@ -59,8 +59,7 @@ jobs:
       - run:
           name: Running tests
           command: |
-            . src/venv/bin/activate
-            . /src/venv/bin/python3 manage.py test
+            . python3 manage.py test
 
       - store_artifacts:
           path: test-reports
