@@ -43,7 +43,7 @@ jobs:
           command: |
             python3 -m venv venv
             . src/venv/bin/activate
-            pip install django
+            sudo pip install django
 
 #       - save_cache:
 #           paths:
