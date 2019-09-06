@@ -59,7 +59,7 @@ jobs:
           name: Running tests
           command: |
             . src/venv/bin/activate
-            . python manage.py test
+            . python3 manage.py test
 
       - store_artifacts:
           path: test-reports
