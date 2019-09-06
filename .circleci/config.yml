@@ -42,6 +42,7 @@ jobs:
           name: install dependencies
           command: |
             python3 -m venv venv
+            venv venv -p python3
             . src/venv/bin/activate
             sudo pip install django
 
