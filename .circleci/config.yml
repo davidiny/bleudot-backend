@@ -56,9 +56,10 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-          name: run tests
+          name: Running tests
           command: |
-            . python3 manage.py test
+            . venv/bin/activate
+            python3 manage.py test
 
       - store_artifacts:
           path: test-reports
