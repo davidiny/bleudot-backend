@@ -67,8 +67,9 @@ jobs:
 #             . ./python3 manage.py test
       - run:
           command: |
+            pwd
             pipenv run python manage.py test
 
       - store_artifacts:
           path: test-reports
-          destination: test-reports
+          destination: test-repo 
