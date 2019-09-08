@@ -38,13 +38,17 @@ jobs:
 #             # fallback to using the latest cache if no exact match is found
 #             - v1-dependencies-
 
+#       - run:
+#           name: install dependencies
+#           command: |
+#             sudo python3 -m pip install virtualenv
+#             virtualenv venv -p python3
+#             source venv/bin/activate
+#             sudo pip install django
       - run:
-          name: install dependencies
           command: |
-            sudo python3 -m pip install virtualenv
-            virtualenv venv -p python3
-            source venv/bin/activate
-            sudo pip install django
+            sudo pip install pipenv
+            pipenv install
 
 #       - save_cache:
 #           paths:
@@ -56,11 +60,14 @@ jobs:
       # other common Python testing frameworks include pytest and nose
       # https://pytest.org
       # https://nose.readthedocs.io
+#       - run:
+#           name: Running tests
+#           command: |
+#             chmod +x /home/circleci/repo/venv/bin/python3
+#             . ./python3 manage.py test
       - run:
-          name: Running tests
           command: |
-            chmod +x /home/circleci/repo/venv/bin/python3
-            . ./python3 manage.py test
+            pipenv run python manage.py test
 
       - store_artifacts:
           path: test-reports
