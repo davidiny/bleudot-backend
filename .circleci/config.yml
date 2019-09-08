@@ -49,6 +49,7 @@ jobs:
           command: |
             sudo pip install pipenv
             pipenv install
+            pipenv install django
 
 #       - save_cache:
 #           paths:
