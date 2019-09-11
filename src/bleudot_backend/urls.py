@@ -17,8 +17,9 @@ from django.contrib.auth.models import User
 from django.contrib import admin
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from rest_framework import viewsets, routers
-from .serializers import UserViewSet, OrganizationViewSet
+from rest_framework import routers
+from .serializers import UserViewSet, OrganizationViewSet, EventViewSet
+# from Event.views import EventViewSet
 from django.conf.urls import url, include
 from django.urls import path
 
@@ -28,6 +29,7 @@ from django.urls import path
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'organizations', OrganizationViewSet)
+router.register(r'event', EventViewSet)
 
 
 
