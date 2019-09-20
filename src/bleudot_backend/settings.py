@@ -27,7 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+###### Rest_Frameword
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # custom apps added
+    'main_calendar',
+    'Event',
+    'address', # documentation: https://github.com/furious-luke/django-address
+    'phone_field', # documentation: https://pypi.org/project/django-phone-field/
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -75,8 +90,12 @@ WSGI_APPLICATION = 'bleudot_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'original_database',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -118,3 +137,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+GOOGLE_API_KEY = 'AIzaSyAHh5hEYiDOr_Js7hywiFloJMv9a78w6gU'
