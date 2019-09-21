@@ -32,3 +32,7 @@ If you encounter a "from exec" error in your manage.py file, do the following:
 3. Run `CREATE ROLE admin WITH LOGIN PASSWORD 'admin';` to create a local `admin` role
 4. Run `GRANT ALL PRIVILEGES ON DATABASE original_database TO admin;` to grant the `admin` privileges
 
+# File Structure
+
+Files in bluedot_backend should only be ones that will be used by all apps, such as urls.py
+Files specific to applications will be inside their own application (eg. serializers for the models found in main_calendar will be found in the main_calendar directory
