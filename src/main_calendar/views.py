@@ -4,12 +4,18 @@
 
 # Create your views here.
 
-from .models import Calendar
-from .serializers import CalendarSerializer
+from .models import Calendar, Event
+from .serializers import CalendarSerializer, EventSerializer
 from rest_framework import generics
 
 class CalendarList(generics.ListCreateAPIView):
     queryset = Calendar.objects.all()
     serializer_class = CalendarSerializer
+
+class EventList(generics.ListCreateAPIView):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+
+    
 
 

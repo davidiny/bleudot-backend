@@ -22,7 +22,7 @@ Including another URLconf
 # from Event.views import EventViewSet
 from django.conf.urls import url, include
 from django.contrib import admin
-from main_calendar.views import CalendarList
+from main_calendar.views import CalendarList, EventList
 
 
 
@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^calendars/$', CalendarList.as_view(), name='calendar-list'),
+    url(r'^events/$', EventList.as_view(), name='event-list'),
     # path('', include(router.urls)),
     # path('admin/', admin.site.urls)
 ]
