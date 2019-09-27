@@ -1,12 +1,11 @@
-import datetime
 #from datetime import date
 
-from django.db import models
-from django.conf import settings
-from django.db import models
+import datetime
 from django.utils import timezone
-from django import forms
-from address.models import AddressField
+# from address.models import AddressField
+from django.db import models
+# from django.conf import settings
+# from django import forms
 from phone_field import PhoneField
 
 """
