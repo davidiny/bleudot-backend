@@ -32,18 +32,25 @@ class UserTestCase(TestCase):
 
 class EventTestCase(TestCase):
     def setUp(self):
+        # datetime.date.fromtimestamp(1885324004) = 9/28/2029
+        # datetime.date.fromtimestamp(1885410404) = 9/29/2029
         Event.objects.create(
             name = 'practice',
+            date = datetime.date.fromtimestamp(1885324004),
+            start_date = datetime.date.fromtimestamp(1885324004),
+            start_time = datetime.time(hour=11, minute=34, second=56, microsecond=123456),
             description = 'test event',
+            end_date = datetime.date.fromtimestamp(1885410404),
+            end_time = datetime.time(hour=12, minute=34, second=56, microsecond=123456),
             location = 'CMU')
 
     def test_event_test_basic(self):
         eventOne = Event.objects.get(name='practice')
         self.assertEqual(eventOne.name, 'practice')
-        self.assertEqual(eventOne.date, datetime.date.today)
+        self.assertEqual(eventOne.date, datetime.date.fromtimestamp(1885324004))
         self.assertEqual(eventOne.description, 'test event')
-        self.assertEqual(eventOne.start_date, datetime.date.today)
-        self.assertEqual(eventOne.start_time, timezone.now)
+        self.assertEqual(eventOne.start_date, datetime.date.fromtimestamp(1885324004))
+        self.assertEqual(eventOne.start_time, datetime.time(hour=11, minute=34, second=56, microsecond=123456))
         self.assertEqual(eventOne.location, 'CMU')
         self.assertEqual(eventOne.recurring, False)
 
@@ -58,7 +65,6 @@ class OrganizationTestCase(TestCase):
         orgOne = Organization.objects.get(name = 'Bleudot')
         self.assertEqual(orgOne.name, 'Bleudot')
         self.assertEqual(orgOne.org_type, 'Project')
-        self.assertEqual(orgOne.created_at, timezone.now)
 
 class RSVPTestCase(TestCase):
     def createUser(self):
@@ -70,6 +76,7 @@ class RSVPTestCase(TestCase):
             )
 
     def createEvent(self):
+        # datetime.date.fromtimestamp(1885410404) = 9/29/2029
         return Event.objects.create(
                 name = 'test_event_rsvp',
                 description = 'test event',
@@ -96,10 +103,18 @@ class RSVPTestCase(TestCase):
 
 class CalendarTestCase(TestCase):
     def setUp(self):
+        org = self.createOrganization()
         Calendar.objects.create(
             name = 'test',
-            description = 'test'
+            description = 'test',
+            organization = org
         )
+
+    def createOrganization(self):
+        return Organization.objects.create(
+                    name = 'Bleudot_CalTests',
+                    org_type = 'Project_CalTests'
+                )
 
     def test_calendar_test_basic(self):
         calOne = Calendar.objects.get(name = 'test')
