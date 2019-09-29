@@ -44,11 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'autofixture',
 
     # custom apps added
     'main_calendar',
-    'Event',
-    'address', # documentation: https://github.com/furious-luke/django-address
+    # 'Event',
+    # 'address', # documentation: https://github.com/furious-luke/django-address
     'phone_field', # documentation: https://pypi.org/project/django-phone-field/
     'rest_framework',
 
