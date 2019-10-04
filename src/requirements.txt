@@ -9,6 +9,7 @@ django-autofixture==0.12.1
 django-phone-field==1.7.1
 djangorestframework==3.10.1
 extensions==0.4
+gunicorn==19.9.0
 humanize==0.5.1
 isort==4.3.4
 lazy-object-proxy==1.3.1
