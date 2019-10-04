@@ -1,1 +1,1 @@
-web: gunicorn src.bleudot_backend.wsgi --log-file -
+web: gunicorn bleudot_backend.wsgi --log-file -
