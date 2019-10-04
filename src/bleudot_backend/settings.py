@@ -25,7 +25,7 @@ SECRET_KEY = 'vupt9gng3=+t(8muzlsryu7aqnvbv16!(d__3-ju@%*)q2wcuq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 ###### Rest_Frameword
 REST_FRAMEWORK = {
