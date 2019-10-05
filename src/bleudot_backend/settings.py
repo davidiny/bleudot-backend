@@ -29,6 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+
 ###### Rest_Frameword
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'autofixture',
+    'corsheaders',
 
     # custom apps added
     'main_calendar',
@@ -58,6 +62,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
