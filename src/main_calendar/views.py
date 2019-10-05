@@ -9,6 +9,7 @@ from .serializers import CalendarSerializer, EventSerializer
 from rest_framework import generics, response
 from django.views import generic
 from rest_framework.response import Response
+from rest_framework import status
 
 class CalendarList(generics.ListCreateAPIView):
     queryset = Calendar.objects.all()
@@ -17,6 +18,14 @@ class CalendarList(generics.ListCreateAPIView):
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+    def post(self, request, format=None):
+        serializer = EventSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class EventDetailView(generics.ListCreateAPIView):
     queryset = Event.objects.all()
