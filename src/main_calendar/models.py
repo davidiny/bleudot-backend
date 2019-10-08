@@ -56,8 +56,12 @@ class Event(models.Model):
     location        = models.CharField(max_length=200)
     created_at      = models.DateTimeField(auto_now_add=True)
     deleted_at      = models.DateTimeField(null=True, blank=True)
-    user            = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    calendar        = models.ForeignKey(Calendar, null=True, blank=True, on_delete=models.SET_NULL)
     recurring       = models.BooleanField(default=False) # we probably need more structure for recurring events
+    type            = models.CharField(max_length=200, null=True)
+    room            = models.CharField(max_length=200, null=True)
+    signature       = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+
 
 class Organization(models.Model):
     name            = models.CharField(max_length=200)
