@@ -10,6 +10,8 @@ from rest_framework import generics, response
 from django.views import generic
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import filters
+
 
 class CalendarList(generics.ListCreateAPIView):
     queryset = Calendar.objects.all()
@@ -18,6 +20,9 @@ class CalendarList(generics.ListCreateAPIView):
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+    search_fields = ['name']
+    filter_backends = (filters.SearchFilter,)
+
 
     def post(self, request, format=None):
         serializer = EventSerializer(data = request.data)
@@ -30,7 +35,7 @@ class EventList(generics.ListCreateAPIView):
 class EventDetailView(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-
+    
     def get(self, request, pk, *args, **kwargs) :
         event = Event.objects.get(pk = pk)
         serializer = EventSerializer(event)
