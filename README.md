@@ -27,7 +27,7 @@ If you encounter a "from exec" error in your manage.py file, do the following:
 # To create database
 [For More Help Installing Postgres](https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3)
 
-1. Run `psql -U postgres -c "CREATEDB original_database"` to create a local database
+1. Run `psql -U postgres -c "CREATE DATABASE original_database"` to create a local database
 2. Run `psql -U postgres -c "CREATE ROLE admin WITH LOGIN PASSWORD 'admin'";` to create a local `admin` role
 3. Run `psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE original_database TO admin";` to grant the `admin` privileges
 
