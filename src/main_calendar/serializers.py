@@ -48,7 +48,7 @@
 
 from rest_framework import serializers
 
-from .models import Calendar, Event
+from .models import Calendar, Event, Organization
 
 class CalendarSerializer(serializers.ModelSerializer):
 
@@ -60,5 +60,11 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
+        fields = '__all__'
+
+class OrganizationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Organization
         fields = '__all__'
 
