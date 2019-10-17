@@ -22,26 +22,29 @@ Including another URLconf
 # from Event.views import EventViewSet
 from django.conf.urls import url, include
 from django.contrib import admin
-from main_calendar.views import CalendarList, EventList, EventDetailView
+from main_calendar.views import (CalendarList,
+                                 CalendarDetailView,
+                                 EventList,
+                                 EventDetailView,
+                                 OrganizationList,
+                                 OrganizationDetailView)
 from django.urls import path
-
-
-
-
 
 # router = routers.DefaultRouter()
 # router.register(r'users', UserViewSet)
 # router.register(r'organizations', OrganizationViewSet)
 # router.register(r'event', EventViewSet)
 
-
-
 urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^calendars/$', CalendarList.as_view(), name='calendar-list'),
     url(r'^events/$', EventList.as_view(), name='event-list'),
+    url(r'^organizations/$', OrganizationList.as_view(), name='organization-list'),
+    path('calendars/<int:pk>', CalendarDetailView.as_view(), name='calendar-detail'),
     path('events/<int:pk>', EventDetailView.as_view(), name='event-detail'),
+    path('organizations/<int:pk>', OrganizationDetailView.as_view(), name='organization-detail')
+    # path('organizations/<int:pk>', OrganizationDetailView.as_view(), name='organization-detail')
     # path('', include(router.urls)),
     # path('admin/', admin.site.urls)
 ]
