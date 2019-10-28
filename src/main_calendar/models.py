@@ -69,10 +69,7 @@ class Organization(models.Model):
     name            = models.CharField(max_length=200)
     org_type        = models.CharField(max_length=200)
     email           = models.EmailField(max_length=200)
-<<<<<<< HEAD
-=======
     org_type        = models.CharField(max_length=200)
->>>>>>> develop
     created_at      = models.DateTimeField(auto_now_add=True)
 
 class Subscription(models.Model):

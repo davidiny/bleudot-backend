@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'autofixture',
     'corsheaders',
-		'django_extensions',
+		# 'django_extensions',
 
     # custom apps added
     'main_calendar',
