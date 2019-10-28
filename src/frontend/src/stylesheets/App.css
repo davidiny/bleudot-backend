@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    background-color: #E2E2E2;
+    margin: 0px;
+}
+
+.scroll{
+    width: 2000px;
+    height:260px;
+}
+.side-banner{
+    height:100%;
+    width: 150px;
+    background-color: grey;
+}
+.category{
+    margin-top:50px;
+}
+.title{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 0px;
+}
+.filter-btns {
+    margin-top: 20px; 
+}
+.filter-btn{
+    padding-left: 20px; 
+    padding-right: 20px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px; 
+    border-width: 1px; 
+    border-right-width: 0px;
+}
+
+/* @import url('https://fonts.googleapis.com/css?family=Nunito'); */
+
+.card{
+    width: 320px;
+    height: 167px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: inline-block;
+    margin-right: 30px; 
+    margin-top: 20px; 
+}
+
+.image{
+    width: 320px;
+    height: 89px;
+}
+
+.day{
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 21px;
+    padding-top: 16px; 
+    padding-right: 16px;
+    float: left;
+}
+.card-body{
+    display: inline-block;
+    
+}
+.img{
+    margin-top: 22px;
+    margin-right: 10px; 
+    float: left;
+}
+
+.content{
+    margin-left: 18px; 
+    float: left;
+    margin-top: 11px; 
+}
+
+.event-title{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.event-details{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #949EA1;
+}
+
+.event-time{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #03BFED;
+}
+
+.curr-date{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #5F5F5F;
+}
+
+.img-container{
+    position: relative; 
+    width: 80%; 
+}
+.export{
+    position: absolute;
+    top: 70px;
+    left: 263px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:#CFF6FF;
+    color: #03BFED;
+    font-size: 11px;
+    padding: 4px 15px;
+    border-width: 1px; 
+    border-color:  #03BFED;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold; 
+    font-family: nunito;
+}
+
+.navbar {
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0px 1px 3px #dfdfdf;
+  width: 100%;
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.container {
+    max-width: 1080px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0 auto;
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 169px;
+}
+
+.navbar-menu a{
+    text-decoration: none;
+    color: #707070;
+}
+
+.navbar-menu a.active{
+    color: #2196f3;
+}
+
+.navbar-title a{
+    color: #707070;
+    text-align: center;
+    font-size: 1.375em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-title a:visited {
+    text-decoration: none;
+    color: #707070;
+}
+
+.navbar-title a:hover {
+    color: rgba(44, 44, 44, 0.5)
+}
+
+.navbar-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 104px;
+}
+
+.navbar-button-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.search-box {
+    margin-top: 20px; 
+    background-color: #E2E2E2;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;  
+}
+
+.search-box input {
+    font-style: italic;
+    font-size: 0.875em;
+    width: 240px;
+    padding: 10px 0px;
+    margin-left: 5px;
+    margin-right: 25px;
+}
+
+.search-box .search-btn {
+    padding: 10px 25px;
+    color: #03BFED;
+    border: 1px solid #03BFED;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+::placeholder {
+  color: #c9c9c9;
+  padding: 8px;
+}
