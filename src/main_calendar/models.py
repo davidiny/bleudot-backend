@@ -29,6 +29,7 @@ class User(models.Model):
     last_name       = models.CharField(max_length=50)
     phone_number    = PhoneField() # settings.py for more info
     profile_pic_url = models.URLField()
+    auth_code       = models.CharField(max_length=200, null=True)
 
 class EventHost(User):
     organization    = models.ForeignKey('Organization', on_delete=models.CASCADE)
@@ -61,13 +62,14 @@ class Event(models.Model):
     type            = models.CharField(max_length=200, null=True)
     room            = models.CharField(max_length=200, null=True)
     signature       = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    
 
 
 class Organization(models.Model):
     name            = models.CharField(max_length=200)
     org_type        = models.CharField(max_length=200)
     email           = models.EmailField(max_length=200)
-    org_type = models.CharField(max_length=200)
+    org_type        = models.CharField(max_length=200)
     created_at      = models.DateTimeField(auto_now_add=True)
 
 class Subscription(models.Model):
