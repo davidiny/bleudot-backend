@@ -219,3 +219,4 @@ typings/
 src/venv/
 src/bleudot_backend/__pycache__
 yarn.lock
+src/frontend/static/
