@@ -15,6 +15,7 @@ from django.views import generic
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import filters
+from django.shortcuts import get_object_or_404
 
 
 class CalendarList(generics.ListCreateAPIView):
@@ -51,6 +52,15 @@ class EventDetailView(generics.ListCreateAPIView):
         event = Event.objects.get(pk = pk)
         serializer = EventSerializer(event)
         return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        event = get_object_or_404(Event.objects.all(), pk=pk)
+        data = request.data.get('event')
+        serializer = EventSerializer(instance=event, data=request.data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            event = serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class OrganizationList(generics.ListCreateAPIView):
     queryset = Organization.objects.all()
