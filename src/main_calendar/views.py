@@ -17,6 +17,9 @@ from rest_framework import status
 from rest_framework import filters
 from django.shortcuts import get_object_or_404
 
+######### circular import error ###########
+#from .exportEvent import main()
+
 
 class CalendarList(generics.ListCreateAPIView):
     queryset = Calendar.objects.all()
@@ -59,6 +62,12 @@ class EventDetailView(generics.ListCreateAPIView):
         serializer = EventSerializer(instance=event, data=request.data, partial=True)
         if serializer.is_valid(raise_exception=True):
             event = serializer.save()
+
+            ########### exporting event code############
+            # summary = event.name
+            # views.addEvent(summary)
+            ########################################
+
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
