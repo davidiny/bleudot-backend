@@ -40,12 +40,12 @@ def main():
     'location': '800 Howard St., San Francisco, CA 94103',
     'description': 'A chance to hear more about Google\'s developer products.',
     'start': {
-        'dateTime': '2019-10-28T06:00:00-07:00',
-        'timeZone': 'America/Los_Angeles',
+        'dateTime': '2019-10-30T06:00:00-07:00',
+        'timeZone': 'America/New_York',
     },
     'end': {
-        'dateTime': '2019-10-28T17:00:00-07:00',
-        'timeZone': 'America/Los_Angeles',
+        'dateTime': '2019-10-30T17:00:00-07:00',
+        'timeZone': 'America/New_York',
     },
     'recurrence': [
         'RRULE:FREQ=DAILY;COUNT=2'

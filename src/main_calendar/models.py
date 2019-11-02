@@ -38,8 +38,8 @@ class Student(User):
     field           = models.CharField(max_length=30)
 
 class Calendar(models.Model):
-    name            = models.CharField(max_length=200)
-    description     = models.TextField()
+    name            = models.CharField(max_length=15)
+    description     = models.TextField(max_length=100)
     created_at      = models.DateTimeField(auto_now_add=True) # sets the value of the field to current datetime when the object is created
     is_private      = models.BooleanField(default=False) # default as public?
     active          = models.BooleanField(default=True)
@@ -47,9 +47,9 @@ class Calendar(models.Model):
     organization    = models.ForeignKey('Organization', on_delete=models.CASCADE)
 
 class Event(models.Model):
-    name            = models.CharField(max_length=200)
+    name            = models.CharField(max_length=15)
     date            = models.DateField(default=datetime.date.today)
-    description     = models.TextField()
+    description     = models.TextField(max_length=100)
     start_date      = models.DateField(default=datetime.date.today)
     start_time      = models.TimeField(default=timezone.now)
     end_date        = models.DateField()
@@ -66,10 +66,9 @@ class Event(models.Model):
 
 
 class Organization(models.Model):
-    name            = models.CharField(max_length=200)
-    org_type        = models.CharField(max_length=200)
-    email           = models.EmailField(max_length=200)
-    org_type        = models.CharField(max_length=200)
+    name            = models.CharField(max_length=15)
+    org_type        = models.CharField(max_length=15)
+    email           = models.EmailField(max_length=15)
     created_at      = models.DateTimeField(auto_now_add=True)
 
 class Subscription(models.Model):
