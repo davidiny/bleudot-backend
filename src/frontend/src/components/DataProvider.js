@@ -16,7 +16,6 @@ class DataProvider extends Component {
         if (response.status !== 200) {
           return this.setState({ placeholder: "Something went wrong" });
         }
-        console.log(response.json());
         return response.json();
       })
       .then(data => this.setState({ data: data, loaded: true }));

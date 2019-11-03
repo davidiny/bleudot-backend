@@ -14,6 +14,8 @@ class Events extends Component {
       <div>
         {this.props.categoryName.map(((category, id) => {
           return (
+            <div className="event-container">
+            {(category.category === this.props.topic) ?(
             <div className="card">
               <div className="image">
                   <div className="img-container">
@@ -24,23 +26,24 @@ class Events extends Component {
               </div>
               <div className="card-body">
                 <div className="day">
-                  <a className="curr-date">{this.props.event.day[id]} <br></br> {this.props.event.month[id]}</a>  
+                  <a className="curr-date">{category.date[0]} <br></br> {category.date[1]}</a>  
                 </div>
                
                 <img src={Line} className="img"></img>
                 
                 <div className="content">
                   <a className="event-title">
-                    {this.props.event.title[id]} <br></br>
+                    {category.name} <br></br>
                   </a>
                   <a className="event-details">
-                    Hosted By {this.props.event.org[id]} <br></br>
+                    Hosted By {category.organization} <br></br>
                   </a>
                   <a className="event-time">
-                    {this.props.event.time[id]} <br></br>
+                    {category.start_time + " - " + category.end_time} <br></br>
                   </a>
                 </div>
               </div>
+            </div>):(<div></div>)}
             </div>
           )
         }))}

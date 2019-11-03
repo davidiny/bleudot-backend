@@ -235,3 +235,7 @@ body {
   color: #c9c9c9;
   padding: 8px;
 }
+
+.event-container{
+    display: inline-block;
+}
