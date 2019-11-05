@@ -6,10 +6,12 @@
 
 from .models import (Calendar,
                      Event,
-                     Organization)
+                     Organization,
+                     User)
 from .serializers import (CalendarSerializer,
                           EventSerializer,
-                          OrganizationSerializer)
+                          OrganizationSerializer,
+                          UserSerializer)
 from rest_framework import generics, response
 from django.views import generic
 from rest_framework.response import Response
