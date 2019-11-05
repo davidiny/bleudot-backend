@@ -27,7 +27,9 @@ from main_calendar.views import (CalendarList,
                                  EventList,
                                  EventDetailView,
                                  OrganizationList,
-                                 OrganizationDetailView)
+                                 OrganizationDetailView,
+                                 UserDetailView,
+                                 UserList)
 from django.urls import path
 
 # router = routers.DefaultRouter()
@@ -41,9 +43,11 @@ urlpatterns = [
     url(r'^calendars/$', CalendarList.as_view(), name='calendar-list'),
     url(r'^events/$', EventList.as_view(), name='event-list'),
     url(r'^organizations/$', OrganizationList.as_view(), name='organization-list'),
+    url(r'^users/$', UserList.as_view(), name='user-list'),
     path('calendars/<int:pk>', CalendarDetailView.as_view(), name='calendar-detail'),
     path('events/<int:pk>', EventDetailView.as_view(), name='event-detail'),
-    path('organizations/<int:pk>', OrganizationDetailView.as_view(), name='organization-detail')
+    path('organizations/<int:pk>', OrganizationDetailView.as_view(), name='organization-detail'),
+    path('users/<int:pk>', UserDetailView.as_view(), name='user-detail')
     # path('organizations/<int:pk>', OrganizationDetailView.as_view(), name='organization-detail')
     # path('', include(router.urls)),
     # path('admin/', admin.site.urls)

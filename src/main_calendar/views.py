@@ -29,7 +29,7 @@ class CalendarList(generics.ListCreateAPIView):
 
 class CalendarDetailView(generics.ListCreateAPIView):
     serializer_class = CalendarSerializer
-    
+
     def get(self, request, pk, *args, **kwargs) :
         calendar = Calendar.objects.get(pk = pk)
         serializer = CalendarSerializer(calendar)
@@ -50,12 +50,12 @@ class EventList(generics.ListCreateAPIView):
 
 class EventDetailView(generics.ListCreateAPIView):
     serializer_class = EventSerializer
-    
+
     def get(self, request, pk, *args, **kwargs):
         event = Event.objects.get(pk = pk)
         serializer = EventSerializer(event)
         return Response(serializer.data)
-    
+
     def put(self, request, pk, format=None):
         event = get_object_or_404(Event.objects.all(), pk=pk)
         data = request.data.get('event')
@@ -73,7 +73,7 @@ class EventDetailView(generics.ListCreateAPIView):
 
 class OrganizationList(generics.ListCreateAPIView):
     queryset = Organization.objects.all()
-    serializer_class = OrganizationSerializer 
+    serializer_class = OrganizationSerializer
     search_fields = ['name']
     filter_backends = (filters.SearchFilter,)
 
@@ -83,10 +83,26 @@ class OrganizationDetailView(generics.ListCreateAPIView):
     def get(self, request, pk, *args, **kwargs):
         org = Organization.objects.get(pk = pk)
         serializer = OrganizationSerializer(org)
-        return Response(serializer.data) 
+        return Response(serializer.data)
 
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
+class UserDetailView(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-    
+    def get(self, request, pk, *args, **kwargs):
+        user = User.objects.get(pk = pk)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
 
-
+    def put(self, request, pk, *args, **kwargs):
+        user = get_object_or_404(User.objects.all(), pk=pk)
+        data = request.data.get('user')
+        serializer = UserSerializer(instance=user, data=request.data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            user = serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
