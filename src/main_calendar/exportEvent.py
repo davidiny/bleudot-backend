@@ -9,7 +9,7 @@ from google.auth.transport.requests import Request
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
-def main():
+def exportEvent(summary):
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
@@ -36,7 +36,7 @@ def main():
 
     # Call the Calendar API
     event = {
-    'summary': 'Google I/O 2015',
+    'summary': summary,
     'location': '800 Howard St., San Francisco, CA 94103',
     'description': 'A chance to hear more about Google\'s developer products.',
     'start': {
@@ -67,5 +67,5 @@ def main():
     print("Worked")
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

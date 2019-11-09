@@ -20,7 +20,7 @@ from rest_framework import filters
 from django.shortcuts import get_object_or_404
 
 ######### circular import error ###########
-#from .exportEvent import main()
+from .exportEvent import exportEvent
 
 
 class CalendarList(generics.ListCreateAPIView):
@@ -64,6 +64,8 @@ class EventDetailView(generics.ListCreateAPIView):
         serializer = EventSerializer(instance=event, data=request.data, partial=True)
         if serializer.is_valid(raise_exception=True):
             event = serializer.save()
+            summary = event.name
+            exportEvent(summary)
 
             ########### exporting event code############
             # summary = event.name
