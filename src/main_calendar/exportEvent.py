@@ -32,8 +32,11 @@ def exportEvent(summary):
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
+            # flow = InstalledAppFlow.from_client_secrets_file(
+            #     os.environ['CREDENTIALS'], SCOPES)
+            # creds = flow.run_local_server(port=0)
             flow = InstalledAppFlow.from_client_secrets_file(
-                os.environ['CREDENTIALS'], SCOPES)
+                'credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
