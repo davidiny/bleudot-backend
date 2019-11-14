@@ -19,8 +19,8 @@ from rest_framework import status
 from rest_framework import filters
 from django.shortcuts import get_object_or_404
 
-######### circular import error ###########
 from .exportEvent import exportEvent
+from .exportHeroku import authorize
 
 
 class CalendarList(generics.ListCreateAPIView):
@@ -65,7 +65,8 @@ class EventDetailView(generics.ListCreateAPIView):
         if serializer.is_valid(raise_exception=True):
             event = serializer.save()
             summary = event.name
-            exportEvent(summary)
+            # exportEvent(summary)
+            authorize()
 
             ########### exporting event code############
             # summary = event.name
