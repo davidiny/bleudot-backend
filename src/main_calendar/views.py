@@ -19,8 +19,10 @@ from rest_framework import status
 from rest_framework import filters
 from django.shortcuts import get_object_or_404
 
-from .exportEvent import exportEvent
+# from .exportEvent import exportEvent
 from .exportHeroku import authorize
+from .exportHeroku import app
+from .exportAnotherAttempt import exportEvent
 
 
 class CalendarList(generics.ListCreateAPIView):
@@ -65,8 +67,8 @@ class EventDetailView(generics.ListCreateAPIView):
         if serializer.is_valid(raise_exception=True):
             event = serializer.save()
             summary = event.name
-            # exportEvent(summary)
-            authorize()
+            exportEvent(summary)
+            # authorize()
 
             ########### exporting event code############
             # summary = event.name
