@@ -33,12 +33,12 @@ def exportEvent(summary):
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            # flow = InstalledAppFlow.from_client_secrets_file(
-            #     os.environ['CREDENTIALS'], SCOPES)
-            # creds = flow.run_local_server(port=0)
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                os.environ['CREDENTIALS'], SCOPES)
             creds = flow.run_local_server(port=0)
+            # flow = InstalledAppFlow.from_client_secrets_file(
+            #     'credentials.json', SCOPES)
+            # creds = flow.run_local_server(port=0)
             authorization_url, state = flow.authorization_url(
             # Enable offline access so that you can refresh an access token without
             # re-prompting the user for permission. Recommended for web server apps.
