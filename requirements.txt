@@ -16,7 +16,7 @@ django-autofixture==0.12.1
 django-cors-headers==3.1.1
 django-heroku==0.3.1
 django-phone-field==1.7.1
-djangorestframework==3.10.1
+djangorestframework==3.11.2
 docutils==0.15.2
 extensions==0.4
 google-api-python-client==1.7.11
